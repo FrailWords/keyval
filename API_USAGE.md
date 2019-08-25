@@ -12,6 +12,9 @@
 ### Get all values
 `curl http://localhost:5000/keys`
 
+### Get all values starting with 'test'
+`curl http://localhost:5000/keys?filter=test*`
+
 ### Delete all values
 `curl -X DELETE http://localhost:5000/keys`
 
