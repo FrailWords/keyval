@@ -37,3 +37,9 @@ In terms of dashboards, there aren't any that are part of this submission as I c
 
 ### Code Structure
 Being not so familiar with Python, the code structure is what worked for me and it could probably be better.
+
+### Assumption
+
+The `PUT` request case wasn't clearly mentioned on how the 'body' of the request would look like, so I assumed that it 
+be of of the form `"{\"id\": \"key1\", \"value\": \"value1\"}"` with `id` and `value` being the mandatory keys for the 
+request body.  
