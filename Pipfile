@@ -6,9 +6,11 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-simple-http-server = "*"
-pickledb = "*"
 redis = "*"
+prometheus-client = "*"
+flask-restful = "*"
+flask = "*"
+flask-prometheus = "*"
 
 [requires]
 python_version = "3.7"
