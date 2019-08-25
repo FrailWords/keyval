@@ -4,6 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pytest = "*"
 
 [packages]
 redis = "*"
@@ -11,6 +12,9 @@ prometheus-client = "*"
 flask-restful = "*"
 flask = "*"
 flask-prometheus = "*"
+testing-redis = "*"
+pytest-flask = "*"
+mock = "*"
 
 [requires]
 python_version = "3.7"

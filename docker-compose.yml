@@ -4,6 +4,8 @@ services:
     build: .
     volumes:
       - .:/app
+    environment:
+      - REDIS_HOST=redis
     ports:
       - "5000:5000"
       - "8000:8000"

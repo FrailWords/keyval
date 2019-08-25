@@ -4,5 +4,5 @@ COPY . /app
 
 VOLUME "/app/data/redis"
 
-CMD python3 /app/app.py
+CMD python3 /app/main.py
 

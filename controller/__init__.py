@@ -36,8 +36,8 @@ class Keys(Resource):
         key = data['id']
         value = data['value']
         args = request.args
-        expire_in = args['expire_in']
-        if expire_in:
+        if args:
+            expire_in = args['expire_in']
             db.set(key, value, ex=int(expire_in))
         else:
             db.set(key, value)

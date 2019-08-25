@@ -1,3 +1,5 @@
 import redis
+import os
 
-db = redis.Redis(host='redis', port=6379, decode_responses=True)
+REDIS_HOST = os.getenv("REDIS_HOST")
+db = redis.Redis(host=REDIS_HOST, port=6379, decode_responses=True)
