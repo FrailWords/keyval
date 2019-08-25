@@ -38,14 +38,21 @@ class Keys(Resource):
         args = request.args
         if args:
             expire_in = args['expire_in']
-            db.set(key, value, ex=int(expire_in))
+            if expire_in:
+                db.set(key, value, ex=int(expire_in))
         else:
             db.set(key, value)
         return "Successfully updated.", 200
 
     def get(self):
-        keys = db.keys(pattern="*")
+        pattern = "*"
+        args = request.args
+        if args:
+            filter_wildcard = args['filter']
+            if filter_wildcard:
+                pattern = filter_wildcard
         json_data = {}
+        keys = db.keys(pattern=pattern)
         for key in keys:
             json_data[key] = str(db.get(key))
         return json.dumps(json_data), 200

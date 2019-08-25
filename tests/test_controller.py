@@ -47,11 +47,25 @@ class MyTestCase(unittest.TestCase):
     def test_keys_get(self):
         db.set("key1", "value1")
         db.set("key2", "value2")
+        db.set("another_test_key1", "value1")
         response = self.client.get(url_for('keys'))
         assert response.status_code == 200
         response_json = json.loads(response.json)
+        assert len(response_json) == 3
         assert response_json['key1'] == "value1"
         assert response_json['key2'] == "value2"
+        assert response_json['another_test_key1'] == "value1"
+
+    def test_keys_get_by_filter(self):
+        db.set("test_key1", "value1")
+        db.set("test_key2", "value2")
+        db.set("another_test_key1", "value1")
+        response = self.client.get("/keys?filter=test*")
+        assert response.status_code == 200
+        response_json = json.loads(response.json)
+        assert len(response_json) == 2
+        assert response_json['test_key1'] == "value1"
+        assert response_json['test_key2'] == "value2"
 
     def test_keys_delete(self):
         db.set("key1", "value1")
